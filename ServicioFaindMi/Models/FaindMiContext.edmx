@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="faindmiService_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Relation">
+          <Key>
+            <PropertyRef Name="RelationId" />
+          </Key>
+          <Property Name="RelationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstUserId" Type="int" Nullable="false" />
+          <Property Name="SecondUserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RelationId" Type="int" Nullable="false" />
+          <Property Name="Accepted" Type="bit" />
+          <Property Name="Finished" Type="bit" />
+          <Property Name="LatFirstUser" Type="float" />
+          <Property Name="LngFirstUser" Type="float" />
+          <Property Name="LatSecondUser" Type="float" />
+          <Property Name="LngSecondUser" Type="float" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Verified" Type="bit" />
+        </EntityType>
+        <Association Name="fk_relation">
+          <End Role="Relation" Type="Self.Relation" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relation">
+              <PropertyRef Name="RelationId" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="RelationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user1">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Relation" Type="Self.Relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Relation">
+              <PropertyRef Name="FirstUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user2">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Relation" Type="Self.Relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Relation">
+              <PropertyRef Name="SecondUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="faindmiService_dbModelStoreContainer">
+          <EntitySet Name="Relation" EntityType="Self.Relation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usr" EntityType="Self.Usr" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_relation" Association="Self.fk_relation">
+            <End Role="Relation" EntitySet="Relation" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user1" Association="Self.fk_user1">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Relation" EntitySet="Relation" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user2" Association="Self.fk_user2">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Relation" EntitySet="Relation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="faindmiService_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Relation">
+          <Key>
+            <PropertyRef Name="RelationId" />
+          </Key>
+          <Property Name="RelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstUserId" Type="Int32" Nullable="false" />
+          <Property Name="SecondUserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.fk_relation" FromRole="Relation" ToRole="Request" />
+          <NavigationProperty Name="Usr" Relationship="Self.fk_user1" FromRole="Relation" ToRole="Usr" />
+          <NavigationProperty Name="Usr1" Relationship="Self.fk_user2" FromRole="Relation" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="Guid" Nullable="false" />
+          <Property Name="RelationId" Type="Int32" Nullable="false" />
+          <Property Name="Accepted" Type="Boolean" />
+          <Property Name="Finished" Type="Boolean" />
+          <Property Name="LatFirstUser" Type="Double" />
+          <Property Name="LngFirstUser" Type="Double" />
+          <Property Name="LatSecondUser" Type="Double" />
+          <Property Name="LngSecondUser" Type="Double" />
+          <NavigationProperty Name="Relation" Relationship="Self.fk_relation" FromRole="Request" ToRole="Relation" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Verified" Type="Boolean" />
+          <NavigationProperty Name="Relations" Relationship="Self.fk_user1" FromRole="Usr" ToRole="Relation" />
+          <NavigationProperty Name="Relations1" Relationship="Self.fk_user2" FromRole="Usr" ToRole="Relation" />
+        </EntityType>
+        <Association Name="fk_relation">
+          <End Role="Relation" Type="Self.Relation" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relation">
+              <PropertyRef Name="RelationId" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="RelationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user1">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Relation" Type="Self.Relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Relation">
+              <PropertyRef Name="FirstUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user2">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Relation" Type="Self.Relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Relation">
+              <PropertyRef Name="SecondUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="faindmiService_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Relations" EntityType="Self.Relation" />
+          <EntitySet Name="Requests" EntityType="Self.Request" />
+          <EntitySet Name="Usrs" EntityType="Self.Usr" />
+          <AssociationSet Name="fk_relation" Association="Self.fk_relation">
+            <End Role="Relation" EntitySet="Relations" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user1" Association="Self.fk_user1">
+            <End Role="Usr" EntitySet="Usrs" />
+            <End Role="Relation" EntitySet="Relations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user2" Association="Self.fk_user2">
+            <End Role="Usr" EntitySet="Usrs" />
+            <End Role="Relation" EntitySet="Relations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="faindmiService_dbModelStoreContainer" CdmEntityContainer="faindmiService_dbEntities">
+          <EntitySetMapping Name="Relations">
+            <EntityTypeMapping TypeName="faindmiService_dbModel.Relation">
+              <MappingFragment StoreEntitySet="Relation">
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="FirstUserId" ColumnName="FirstUserId" />
+                <ScalarProperty Name="SecondUserId" ColumnName="SecondUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="faindmiService_dbModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+                <ScalarProperty Name="LatFirstUser" ColumnName="LatFirstUser" />
+                <ScalarProperty Name="LngFirstUser" ColumnName="LngFirstUser" />
+                <ScalarProperty Name="LatSecondUser" ColumnName="LatSecondUser" />
+                <ScalarProperty Name="LngSecondUser" ColumnName="LngSecondUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usrs">
+            <EntityTypeMapping TypeName="faindmiService_dbModel.Usr">
+              <MappingFragment StoreEntitySet="Usr">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Verified" ColumnName="Verified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
