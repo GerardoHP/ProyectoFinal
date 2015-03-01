@@ -332,8 +332,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{7a4f6d64-16b6-4e69-be7a-f26d6fd26587}</Project>
+    <ProjectReference Include="..\CommonPortable\Common.csproj">
+      <Project>{5945e596-04ed-4d26-8181-60d7d93d4d0a}</Project>
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>

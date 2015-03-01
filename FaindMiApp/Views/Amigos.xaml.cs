@@ -10,18 +10,11 @@ using Microsoft.Phone.Shell;
 
 namespace FaindMiApp.Views
 {
-    using FaindMiApp.Common;
-
-    public partial class CargaInicio : PhoneApplicationPage
+    public partial class Amigos : PhoneApplicationPage
     {
-        public CargaInicio()
+        public Amigos()
         {
             InitializeComponent();
-        }
-
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            Utilidades.ObtenerSetting<UsrDTO
         }
     }
 }
