@@ -3,20 +3,62 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{26F1E5F5-3F4B-424F-8B94-0D48D7DDE0BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioFaindMi", "ServicioFaindMi\ServicioFaindMi.csproj", "{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{B4D714F9-1023-4C0B-AB25-A1922E183ACC}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{5ACE14E3-937F-422B-9079-191583461191}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\ServicioFaindMi-WAWS-dev.json = PublishScripts\Configurations\ServicioFaindMi-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.csproj", "{36FD55F6-4FD0-498E-A01F-CED69468F08D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{26F1E5F5-3F4B-424F-8B94-0D48D7DDE0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26F1E5F5-3F4B-424F-8B94-0D48D7DDE0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26F1E5F5-3F4B-424F-8B94-0D48D7DDE0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26F1E5F5-3F4B-424F-8B94-0D48D7DDE0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BE9B6400-308B-4FE2-A86C-FCC15C8DD153}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7A4F6D64-16B6-4E69-BE7A-F26D6FD26587}.Release|x86.ActiveCfg = Release|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5ACE14E3-937F-422B-9079-191583461191} = {B4D714F9-1023-4C0B-AB25-A1922E183ACC}
 	EndGlobalSection
 EndGlobal
