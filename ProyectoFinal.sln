@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.csproj", "{36FD55F6-4FD0-498E-A01F-CED69468F08D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaindMiApp", "FaindMiApp\FaindMiApp.csproj", "{75663A55-5200-414A-840A-E5C1B20353C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,24 @@ Global
 		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|ARM.ActiveCfg = Release|Any CPU
 		{36FD55F6-4FD0-498E-A01F-CED69468F08D}.Release|x86.ActiveCfg = Release|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|ARM.ActiveCfg = Debug|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|ARM.Build.0 = Debug|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|ARM.Deploy.0 = Debug|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|x86.ActiveCfg = Debug|x86
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|x86.Build.0 = Debug|x86
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Debug|x86.Deploy.0 = Debug|x86
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|ARM.ActiveCfg = Release|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|ARM.Build.0 = Release|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|ARM.Deploy.0 = Release|ARM
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|x86.ActiveCfg = Release|x86
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|x86.Build.0 = Release|x86
+		{75663A55-5200-414A-840A-E5C1B20353C0}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
