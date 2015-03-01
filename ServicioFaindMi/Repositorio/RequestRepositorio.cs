@@ -6,6 +6,7 @@ using System.Web;
 namespace ServicioFaindMi.Repositorio
 {
     using Common.Models;
+    using CommonPortable.Models;
 
     public class RequestRepositorio : IRepositorioBase<Request>, IDisposable
     {

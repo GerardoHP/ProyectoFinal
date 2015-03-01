@@ -5,6 +5,7 @@ using System.Linq;
 namespace ServicioFaindMi.Repositorio
 {
     using Common.Models;
+    using CommonPortable.Models;
 
     public class RelationRepositorio : IRepositorioBase<Relation>, IDisposable
     {

@@ -14,6 +14,7 @@ namespace ServicioFaindMi.Controllers
     using AutoMapper;
     using Common.DataModels;
     using Common.Models;
+    using CommonPortable.Models;
     using ServicioFaindMi.Models;
     using ServicioFaindMi.Repositorio;
 
